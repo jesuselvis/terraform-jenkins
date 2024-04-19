@@ -28,3 +28,13 @@ resource "aws_vpc" "my_vpc" {
     Name = "MyVPC"  # Nombre descriptivo para la VPC
   }
 }
+
+resource "aws_subnet" "public_subnet" {
+  vpc_id                  = aws_vpc.my_vpc.id  # Referencia a la VPC creada anteriormente
+  cidr_block              = "10.0.1.0/24"       # Especifica el bloque CIDR para la subred pública
+  map_public_ip_on_launch = true                # Habilita la asignación automática de IP pública a las instancias en esta subred
+
+  tags = {
+    Name = "PublicSubnet"  # Nombre descriptivo para la subred pública
+  }
+}
