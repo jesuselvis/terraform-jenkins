@@ -8,7 +8,7 @@ terraform {
 
 provider "aws" {
   region     = "us-east-1"
-  profile = "integrations-dev"
+  #profile = "integrations-dev"
 }
 
 # module "vpc" {
